@@ -15,7 +15,14 @@ namespace MiddlewareProject
         }
         public async Task Invoke(HttpContext context)
         {
-            await context.Response.WriteAsync("this is " + environment+" Environment");
+            await context.Response.WriteAsync("this is " + environment + " Environment first time");
+            string[] strArr = new string[] { "Middleware" };
+            //for (int i = 0; i < strArr.Length; i++)
+            //{
+            //    string tempstring = strArr[4];
+            //    await context.Response.WriteAsync(tempstring);
+            //}
+            await context.Response.WriteAsync("\nthis is " + environment + " Environment");
             await this.next(context);
         }
     }
